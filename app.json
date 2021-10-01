@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "heybroker",
+    "name": "Hey Broker",
     "slug": "heybroker",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,10 +23,15 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.heybroker.heybroker",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-av"
+    ]
   }
 }

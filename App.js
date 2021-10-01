@@ -1,21 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ThemeProvider } from 'react-native-rapi-ui';
+import * as React from 'react';
+import { Dimensions } from 'react-native';
+import RootNavigator from './src/navigators/RootNavigator';
+import ContextProvider from './src/context/ContextProvider';
 
-export default function App() {
+const windowWidth = Dimensions.get('window').width;
+
+export default App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ContextProvider>
+      <StatusBar hidden />
+      <ThemeProvider theme="light">
+        <RootNavigator />
+      </ThemeProvider>
+    </ContextProvider>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+};
