@@ -69,45 +69,54 @@ const ContextProvider = ({ children }) => {
     bootstrapAsync();
   }, []);
 
-  React.useEffect(() => {
-    const bootstrapAsync = async () => {
-      try {
-        const userToken = await SecureStore.getItemAsync('userToken');
-        const readAnswersString = await SecureStore.getItemAsync('ReadAnswers');
-        if (!readAnswersString || !userToken) {
-          return;
-        }
-        const readAnswersLength = await JSON.parse(readAnswersString).length;
+  const notifBootstrapAsync = async () => {
+    try {
+      const userToken = await SecureStore.getItemAsync('userToken');
 
-        const response = await fetch(
-          'https://api.heybrokers.com/Question/List',
-          {
-            method: 'GET',
-            headers: {
-              Authorization: 'Bearer ' + userToken,
-            },
-          }
-        );
-        const result = await response.json();
-        const questionAnswersLength = await result.data.filter(
-          (x) => x.answer != null
-        ).length;
-
-        const notificationLength = questionAnswersLength - readAnswersLength;
-
-        if (notificationLength)
-          dispatch({
-            type: 'SET_NOTIFICATION_COUNT',
-            count: notificationLength,
-          });
-      } catch (e) {
-        console.log(e);
-        Alert.alert('Error CP2');
+      if (!userToken) {
+        return;
       }
-    };
 
-    bootstrapAsync();
-  }, []);
+      const response = await fetch(
+        'https://api.heybrokers.com/Question/List',
+        {
+          method: 'GET',
+          headers: {
+            Authorization: 'Bearer ' + userToken,
+          },
+        }
+      );
+      const result = await response.json();
+      const questionAnswersLength = await result.data.filter(
+        (x) => x.answer != null
+      ).length;
+
+      const readAnswersString = await SecureStore.getItemAsync('ReadAnswers');
+      if (!readAnswersString) {
+        return dispatch({
+          type: 'SET_NOTIFICATION_COUNT',
+          count: questionAnswersLength,
+        });
+      }
+      const readAnswersLength = await JSON.parse(readAnswersString).length;
+
+      const notificationLength = questionAnswersLength - readAnswersLength;
+      console.log(questionAnswersLength, readAnswersLength)
+
+      if (notificationLength)
+        dispatch({
+          type: 'SET_NOTIFICATION_COUNT',
+          count: notificationLength,
+        });
+    } catch (e) {
+      console.log(e);
+      Alert.alert('Error CP2');
+    }
+  };
+
+  React.useEffect(() => {
+    notifBootstrapAsync();
+  }, [state.userToken]);
 
   const authContext = React.useMemo(
     () => ({
@@ -171,11 +180,8 @@ const ContextProvider = ({ children }) => {
           );
         }
       },
-      setNotificationCount: async (count) => {
-        dispatch({
-          type: 'SET_NOTIFICATION_COUNT',
-          count: count,
-        });
+      updateNotificationCount: async () => {
+        notifBootstrapAsync();
       },
     }),
     []

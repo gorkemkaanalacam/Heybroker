@@ -17,7 +17,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.heybroker.heybroker"
     },
     "android": {
       "adaptiveIcon": {
@@ -25,7 +26,11 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.heybroker.heybroker",
-      "versionCode": 1
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"

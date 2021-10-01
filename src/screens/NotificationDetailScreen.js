@@ -13,13 +13,12 @@ export default NotificationDetailScreen = ({ route }) => {
       try {
         let readAnswers = [];
         const readAnswersString = await SecureStore.getItemAsync('ReadAnswers');
-        console.log(readAnswersString);
         if (readAnswersString) {
           readAnswers = await JSON.parse(readAnswersString);
         }
         if (!readAnswers.includes(item.answer.id)) {
-          state.notificationCount > 0 &&
-            authContext.setNotificationCount(state.notificationCount - 1);
+          console.log(readAnswersString);
+          authContext.updateNotificationCount();
           readAnswers.push(item.answer.id);
           await SecureStore.setItemAsync(
             'ReadAnswers',
