@@ -41,11 +41,11 @@ export default ForgotPasswordScreen = ({ navigation }) => {
       <LoadingModal loading={isLoading} />
       <View>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back-circle" size={42} color="black" />
+          <Ionicons name="arrow-back-circle" size={42} color="gray" />
         </TouchableOpacity>
       </View>
       <Image
-        style={{ width: 200, height: 200, alignSelf: 'center' }}
+        style={{ width: 100, height: 100, alignSelf: 'center', marginVertical: 30 }}
         source={require('../../assets/icon.png')}
       />
       <Controller

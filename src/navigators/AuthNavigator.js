@@ -2,6 +2,7 @@ import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SignInScreen from '../screens/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen';
+import IntroScreen from '../screens/IntroScreen';
 import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 import SmsValidationScreen from '../screens/SmsValidationScreen';
 import EmailValidationScreen from '../screens/EmailValidationScreen';
@@ -12,6 +13,11 @@ const Stack = createNativeStackNavigator();
 const AuthNavigator = () => {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="Intro"
+        component={IntroScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="SignUp"
         component={SignUpScreen}

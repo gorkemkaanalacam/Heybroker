@@ -1,11 +1,12 @@
-import { Button, TextInput, Text, themeColor } from 'react-native-rapi-ui';
+import { Button, TextInput, Text, themeColor, CheckBox } from 'react-native-rapi-ui';
 import React, { useContext, useEffect } from 'react';
-import { Alert, View, Image, TouchableOpacity } from 'react-native';
+import { Alert, View, Image, TouchableOpacity, ScrollView, Text as ReactText } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { AuthContext } from '../context/ContextProvider';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Ionicons } from '@expo/vector-icons';
 import * as yup from 'yup';
+import * as Linking from 'expo-linking';
 
 const schema = yup
   .object({
@@ -14,6 +15,8 @@ const schema = yup
     email: yup.string().email().required(),
     password: yup.string().required(),
     phone: yup.string().required(),
+    policy: yup.bool().isTrue("Kayıt olabilmek için bu alanı işaretlemeniz gerekiyor."),
+    terms: yup.bool().isTrue("Kayıt olabilmek için bu alanı işaretlemeniz gerekiyor."),
   })
   .required();
 
@@ -32,9 +35,9 @@ export default SignUpScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={{ padding: 20 }}>
+    <ScrollView style={{ margin: 20 }}>
       <Image
-        style={{ width: 150, height: 150, alignSelf: 'center' }}
+        style={{ width: 100, height: 100, alignSelf: 'center', marginVertical: 30 }}
         source={require('../../assets/icon.png')}
       />
       <Controller
@@ -117,6 +120,62 @@ export default SignUpScreen = ({ navigation }) => {
         defaultValue=""
       />
       <Text>{errors.phone?.message}</Text>
+      <Controller
+        control={control}
+        rules={{
+          maxLength: 100,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <CheckBox
+              onBlur={onBlur}
+              onValueChange={onChange}
+              value={value}
+            />
+            <View style={{ flex: 1, flexDirection: 'row' }}>
+              <Text size="md" style={{ marginLeft: 10, color: 'gray' }}>
+                I agree with the
+              </Text>
+              <TouchableOpacity onPress={() => Linking.openURL('https://heybrokers.com/policy')}>
+                <ReactText style={{ marginLeft: 10, color: 'white', textDecorationLine: 'underline' }}>
+                  Policy
+                </ReactText>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
+        name="policy"
+        defaultValue={false}
+      />
+      <Text>{errors.policy?.message}</Text>
+      <Controller
+        control={control}
+        rules={{
+          maxLength: 100,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <CheckBox
+              onBlur={onBlur}
+              onValueChange={onChange}
+              value={value}
+            />
+            <View style={{ flex: 1, flexDirection: 'row' }}>
+              <Text size="md" style={{ marginLeft: 10, color: 'gray' }}>
+                I agree with the
+              </Text>
+              <TouchableOpacity onPress={() => Linking.openURL('https://heybrokers.com/policy')}>
+                <ReactText style={{ marginLeft: 10, color: 'white', textDecorationLine: 'underline' }}>
+                  Terms
+                </ReactText>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
+        name="terms"
+        defaultValue={false}
+      />
+      <Text>{errors.terms?.message}</Text>
       <Button
         style={{ marginTop: 10 }}
         text="Kayıt Ol"
@@ -135,6 +194,6 @@ export default SignUpScreen = ({ navigation }) => {
           <Text style={{ color: themeColor.primary }}>Giriş Yap</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
 };

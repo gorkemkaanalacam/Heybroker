@@ -45,7 +45,7 @@ export default NewsScreen = ({ navigation }) => {
                   padding: 10,
                   marginBottom: 10,
                   height: 140,
-                  backgroundColor: 'white',
+                  backgroundColor: '#262834',
                 }}
               >
                 <Text style={{ fontSize: 17 }}>{item.title}</Text>

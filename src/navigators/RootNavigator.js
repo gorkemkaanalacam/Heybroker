@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 import { AuthContext } from '../context/ContextProvider';
 import AppNavigator from '../navigators/AppNavigator';
 import AuthNavigator from '../navigators/AuthNavigator';
@@ -10,7 +10,7 @@ const RootNavigator = () => {
   const { state } = React.useContext(AuthContext);
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={DarkTheme}>
       {state.isLoading ? (
         // We haven't finished checking for the token yet
         <LoadingModal loading={state.isLoading} />

@@ -56,10 +56,17 @@ export default HomeScreen = ({ navigation }) => {
         />
         <View style={{ marginHorizontal: 5 }}></View>
         <Button
-          text="Haberler"
+          text="Takvim"
           status="success"
           style={{ flex: 1 }}
-          onPress={() => navigation.jumpTo('NewsNav')}
+          onPress={() => navigation.navigate('Calendar')}
+        />
+        <View style={{ marginHorizontal: 5 }}></View>
+        <Button
+          text="Haberler"
+          status="info"
+          style={{ flex: 1 }}
+          onPress={() => navigation.navigate('News')}
         />
       </View>
       <WebView

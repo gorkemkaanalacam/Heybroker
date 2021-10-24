@@ -20,6 +20,7 @@ const NewsNavigator = () => {
                 textAlign: 'center',
                 fontSize: 20,
                 fontWeight: '700',
+                color: '#FFF'
               }}
             >
               Haberler
@@ -39,6 +40,7 @@ const NewsNavigator = () => {
                   flex: 1,
                   fontSize: 20,
                   fontWeight: '700',
+                  color: '#FFF'
                 }}
               >
                 {news.author.name}

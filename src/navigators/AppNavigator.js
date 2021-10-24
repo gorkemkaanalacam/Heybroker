@@ -72,7 +72,7 @@ const AppNavigator = () => {
           } else if (route.name === 'NotificationsNav') {
             return (
               <Ionicons
-                name={focused ? 'notifications' : 'notifications-outline'}
+                name={focused ? 'mail' : 'mail-outline'}
                 size={size}
                 color={color}
               />
@@ -80,7 +80,7 @@ const AppNavigator = () => {
           }
         },
         tabBarInactiveTintColor: 'gray',
-        tabBarActiveTintColor: 'tomato',
+        tabBarActiveTintColor: '#F6BC3C',
       })}
     >
       <Tab.Screen
@@ -115,19 +115,19 @@ const AppNavigator = () => {
           headerShown: false,
         }}
       /> */}
-      <Tab.Screen
+      {/* <Tab.Screen
         name="NewsNav"
         component={NewsNavigator}
         options={{
           title: 'Haberler',
           headerShown: false,
         }}
-      />
+      /> */}
       <Tab.Screen
         name="QuestionsNav"
         component={QuestionsNavigator}
         options={{
-          title: 'Sorular',
+          title: 'Sor Gelsin',
           headerShown: false,
         }}
       />
@@ -135,7 +135,7 @@ const AppNavigator = () => {
         name="NotificationsNav"
         component={NotificationsNavigator}
         options={{
-          title: 'Bildirimler',
+          title: 'Gelen Kutusu',
           headerShown: false,
           tabBarBadge: state.notificationCount,
         }}

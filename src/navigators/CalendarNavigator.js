@@ -19,6 +19,7 @@ const CalendarNavigator = () => {
                 textAlign: 'center',
                 fontSize: 20,
                 fontWeight: '700',
+                color: '#FFF'
               }}
             >
               Ekonomik Takvim

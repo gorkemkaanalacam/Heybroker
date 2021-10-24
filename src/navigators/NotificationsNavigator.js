@@ -22,6 +22,7 @@ const NotificationsNavigator = () => {
                 fontSize: 20,
                 textAlign: 'center',
                 fontWeight: '700',
+                color: '#FFF'
               }}
             >
               Bildirimler
@@ -42,6 +43,7 @@ const NotificationsNavigator = () => {
                   flex: 1,
                   fontSize: 20,
                   fontWeight: '700',
+                  color: '#FFF'
                 }}
               >
                 {item.answer.title}

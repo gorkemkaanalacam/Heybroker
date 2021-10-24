@@ -1,4 +1,4 @@
-import { Text } from 'react-native-rapi-ui';
+import { Text, Layout, themeColor } from 'react-native-rapi-ui';
 import React, { useContext, useState, useEffect, useCallback } from 'react';
 import {
   View,
@@ -38,7 +38,7 @@ export default AnalyzesScreen = ({ navigation }) => {
   }, []);
 
   return (
-    <View style={{ flex: 1 }}>
+    <Layout style={{ flex: 1 }}>
       <FlatList
         style={{ padding: 10 }}
         data={analysisList}
@@ -59,7 +59,7 @@ export default AnalyzesScreen = ({ navigation }) => {
                   marginBottom: 10,
                   borderRadius: 5,
                   height: 160,
-                  backgroundColor: 'white',
+                  backgroundColor: '#262834',
                 }}
               >
                 <Text
@@ -91,6 +91,6 @@ export default AnalyzesScreen = ({ navigation }) => {
           );
         }}
       />
-    </View>
+    </Layout>
   );
 };

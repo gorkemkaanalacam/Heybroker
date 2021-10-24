@@ -20,6 +20,7 @@ const AnalyzesNavigator = () => {
                 textAlign: 'center',
                 fontSize: 20,
                 fontWeight: '700',
+                color: '#FFF'
               }}
             >
               Analizler
@@ -39,6 +40,7 @@ const AnalyzesNavigator = () => {
                   flex: 1,
                   fontSize: 20,
                   fontWeight: '700',
+                  color: '#FFF'
                 }}
               >
                 {item.title}

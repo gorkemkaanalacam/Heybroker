@@ -64,7 +64,7 @@ export default NotificationsScreen = ({ navigation }) => {
                   marginBottom: 10,
                   borderRadius: 5,
                   height: 160,
-                  backgroundColor: 'white',
+                  backgroundColor: '#262834',
                 }}
               >
                 <Text

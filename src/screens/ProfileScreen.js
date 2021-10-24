@@ -93,7 +93,7 @@ export default ProfileScreen = ({ navigation }) => {
       <LoadingModal loading={isLoading} />
       {/* <View>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="close" size={42} color="black" />
+          <Ionicons name="close" size={42} color="gray" />
         </TouchableOpacity>
       </View> */}
       <View style={{ alignItems: 'center', marginVertical: 30 }}>

@@ -22,7 +22,7 @@ export default SmsValidationScreen = ({ navigation }) => {
     <View style={{ padding: 20 }}>
       <View>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back-circle" size={42} color="black" />
+          <Ionicons name="arrow-back-circle" size={42} color="gray" />
         </TouchableOpacity>
       </View>
       <Image

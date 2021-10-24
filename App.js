@@ -11,7 +11,7 @@ export default App = () => {
   return (
     <ContextProvider>
       <StatusBar hidden />
-      <ThemeProvider theme="light">
+      <ThemeProvider theme="dark">
         <RootNavigator />
       </ThemeProvider>
     </ContextProvider>

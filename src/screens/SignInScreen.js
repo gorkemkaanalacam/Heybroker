@@ -1,4 +1,4 @@
-import { Button, TextInput, Text, themeColor } from 'react-native-rapi-ui';
+import { Button, TextInput, Text, themeColor, CheckBox } from 'react-native-rapi-ui';
 import React, { useContext } from 'react';
 import { Alert, View, Image, TouchableOpacity } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
@@ -33,11 +33,11 @@ export default SignInScreen = ({ navigation }) => {
     <View style={{ padding: 20 }}>
       <View>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back-circle" size={42} color="black" />
+          <Ionicons name="arrow-back-circle" size={42} color="gray" />
         </TouchableOpacity>
       </View>
       <Image
-        style={{ width: 200, height: 200, alignSelf: 'center' }}
+        style={{ width: 100, height: 100, alignSelf: 'center', marginVertical: 30 }}
         source={require('../../assets/icon.png')}
       />
       <Controller
