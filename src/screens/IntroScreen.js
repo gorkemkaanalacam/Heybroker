@@ -25,7 +25,7 @@ export default IntroScreen = ({ navigation }) => {
 
                 <View style={styles.loginContainer}>
                     <View style={{ flexDirection: "row", marginTop: 90 }}>
-                        <Text style={styles.balansfx}>Hey Broker !</Text>
+                        <Text style={styles.balansfx}>Hey Brokers !</Text>
                         {/* <Text style={styles.welcome}>Hoşgeldiniz</Text> */}
                     </View>
 
