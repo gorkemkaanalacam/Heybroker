@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Hey Broker",
-    "slug": "heybroker",
+    "name": "Hey Brokers",
+    "slug": "heybrokers",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,7 +24,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.heybroker.heybroker",
+      "package": "com.heybrokers.heybrokers",
       "versionCode": 1
     },
     "web": {
