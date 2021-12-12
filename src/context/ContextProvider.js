@@ -3,6 +3,7 @@ import { ThemeProvider } from 'react-native-rapi-ui';
 import React from 'react';
 import { Alert } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
+import { updateNotificationState } from '../api';
 
 const AuthContext = React.createContext();
 
@@ -123,6 +124,7 @@ const ContextProvider = ({ children }) => {
         const userToken = result.data;
         dispatch({ type: 'AUTH_LOAD' });
         if (userToken) {
+          updateNotificationState(userToken);
           await SecureStore.setItemAsync('userToken', userToken);
           dispatch({ type: 'SIGN_IN', token: userToken });
         } else if (result.statusCode === 108) {
@@ -157,6 +159,7 @@ const ContextProvider = ({ children }) => {
         const userToken = result.data;
         dispatch({ type: 'AUTH_LOAD' });
         if (userToken) {
+          updateNotificationState(userToken);
           await SecureStore.setItemAsync('userToken', userToken);
           dispatch({ type: 'SIGN_IN', token: userToken });
         } else if (result.statusCode === 101) {

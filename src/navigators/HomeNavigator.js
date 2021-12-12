@@ -4,7 +4,9 @@ import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import NewsScreen from '../screens/NewsScreen';
 import CalendarScreen from '../screens/CalendarScreen';
-import { TouchableOpacity, Text } from 'react-native';
+import NotificationsScreen from '../screens/NotificationsScreen';
+import NotificationDetailScreen from '../screens/NotificationDetailScreen';
+import { TouchableOpacity, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const Stack = createNativeStackNavigator();
@@ -23,16 +25,21 @@ const HomeNavigator = () => {
                 textAlign: 'center',
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#FFF'
+                color: '#79A7CC'
               }}
             >
-              Keşfet
+              Hey Brokers!
             </Text>
           ),
           headerRight: () => (
-            <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-              <Ionicons name="person" size={24} color="gray" />
-            </TouchableOpacity>
+            <View style={{ flexDirection: 'row' }}>
+              <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+                <Ionicons name="person" size={24} color="#79A7CC" style={{ marginRight: 10 }} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate('Notifications')}>
+                <Ionicons name="mail" size={24} color="#79A7CC" />
+              </TouchableOpacity>
+            </View>
           ),
         })}
       />
@@ -46,7 +53,7 @@ const HomeNavigator = () => {
                 flex: 1,
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#FFF'
+                color: '#79A7CC'
               }}
             >
               Profile
@@ -65,7 +72,7 @@ const HomeNavigator = () => {
                 flex: 1,
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#FFF'
+                color: '#79A7CC'
               }}
             >
               Ekonomik Takvim
@@ -84,7 +91,7 @@ const HomeNavigator = () => {
                 flex: 1,
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#FFF'
+                color: '#79A7CC'
               }}
             >
               Haberler
@@ -105,10 +112,51 @@ const HomeNavigator = () => {
                   flex: 1,
                   fontSize: 20,
                   fontWeight: '700',
-                  color: '#FFF'
+                  color: '#79A7CC'
                 }}
               >
                 {news.author.name}
+              </Text>
+            ),
+          };
+        }}
+      />
+
+      <Stack.Screen
+        name="Notifications"
+        component={NotificationsScreen}
+        options={({ navigation }) => ({
+          headerTitle: () => (
+            <Text
+              style={{
+                flex: 1,
+                fontSize: 20,
+                fontWeight: '700',
+                color: '#79A7CC'
+              }}
+            >
+              Bildirimler
+            </Text>
+          ),
+        })}
+      />
+
+      <Stack.Screen
+        name="NotificationDetail"
+        component={NotificationDetailScreen}
+        options={({ navigation, route }) => {
+          const item = route.params.notification;
+          return {
+            headerTitle: () => (
+              <Text
+                style={{
+                  flex: 1,
+                  fontSize: 20,
+                  fontWeight: '700',
+                  color: '#79A7CC'
+                }}
+              >
+                {item.answer.title}
               </Text>
             ),
           };

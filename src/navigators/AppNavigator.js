@@ -107,22 +107,22 @@ const AppNavigator = () => {
           headerShown: false,
         }}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name="CalendarNav"
         component={CalendarNavigator}
         options={{
           title: 'Takvim',
           headerShown: false,
         }}
-      /> */}
-      {/* <Tab.Screen
+      />
+      <Tab.Screen
         name="NewsNav"
         component={NewsNavigator}
         options={{
           title: 'Haberler',
           headerShown: false,
         }}
-      /> */}
+      />
       <Tab.Screen
         name="QuestionsNav"
         component={QuestionsNavigator}
@@ -131,7 +131,7 @@ const AppNavigator = () => {
           headerShown: false,
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="NotificationsNav"
         component={NotificationsNavigator}
         options={{
@@ -139,7 +139,7 @@ const AppNavigator = () => {
           headerShown: false,
           tabBarBadge: state.notificationCount,
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };

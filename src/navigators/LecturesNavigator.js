@@ -20,7 +20,7 @@ const LecturesNavigator = () => {
                 textAlign: 'center',
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#FFF'
+                color: '#79A7CC'
               }}
             >
               Dersler
@@ -38,7 +38,7 @@ const LecturesNavigator = () => {
                 flex: 1,
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#FFF'
+                color: '#79A7CC'
               }}
             >
               Ders 1

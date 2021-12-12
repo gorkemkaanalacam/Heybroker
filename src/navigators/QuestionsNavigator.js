@@ -21,7 +21,7 @@ const QuestionsNavigator = () => {
                 textAlign: 'center',
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#FFF'
+                color: '#79A7CC'
               }}
             >
               Sorular
@@ -48,7 +48,7 @@ const QuestionsNavigator = () => {
                 flex: 1,
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#FFF'
+                color: '#79A7CC'
               }}
             >
               Bildirimler
