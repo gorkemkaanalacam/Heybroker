@@ -7,6 +7,7 @@ import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 import SmsValidationScreen from '../screens/SmsValidationScreen';
 import EmailValidationScreen from '../screens/EmailValidationScreen';
 import ChangePasswordScreen from '../screens/ChangePasswordScreen';
+import { colors } from '../constants';
 
 const Stack = createNativeStackNavigator();
 

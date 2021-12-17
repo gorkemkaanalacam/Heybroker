@@ -1,12 +1,13 @@
 import { Button } from 'react-native-rapi-ui';
 import React, { useContext, useEffect, useState } from 'react';
 import { WebView } from 'react-native-webview';
-import { View, Image } from 'react-native';
+import { View, Image, Touchable, TouchableOpacity } from 'react-native';
 import { AuthContext } from '../context/ContextProvider';
 import { SliderBox } from 'react-native-image-slider-box';
 import LoadingModal from '../components/LoadingModal';
 import * as Linking from 'expo-linking';
 import { ChangeLocalizationLang } from '../helpers/Localization';
+import { colors } from '../constants';
 import i18n from 'i18n-js';
 
 export default HomeScreen = ({ navigation }) => {
@@ -51,7 +52,10 @@ export default HomeScreen = ({ navigation }) => {
           padding: 10,
         }}
       >
-        <Button
+        <TouchableOpacity style={{ flex: 1, alignItems: 'center' }} onPress={() => navigation.jumpTo("QuestionsNav")}>
+          <Image style={{ height: 80, resizeMode: 'contain' }} source={require('../../assets/asktocome.png')} />
+        </TouchableOpacity>
+        {/* <Button
           text={i18n.t("welcome")}
           status="primary"
           style={{ flex: 1 }}
@@ -70,7 +74,7 @@ export default HomeScreen = ({ navigation }) => {
           status="info"
           style={{ flex: 1 }}
           onPress={() => navigation.navigate('News')}
-        />
+        /> */}
       </View>
       <WebView
         style={{ flex: 1, backgroundColor: '#1E222D' }}

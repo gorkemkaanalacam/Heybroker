@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LecturesScreen from '../screens/LecturesScreen';
 import LectureDetailScreen from '../screens/LectureDetailScreen';
 import { TouchableOpacity, Text } from 'react-native';
+import { colors } from '../constants';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,7 +21,7 @@ const LecturesNavigator = () => {
                 textAlign: 'center',
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#79A7CC'
+                color: colors.neonblue
               }}
             >
               Dersler
@@ -38,7 +39,7 @@ const LecturesNavigator = () => {
                 flex: 1,
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#79A7CC'
+                color: colors.neonblue
               }}
             >
               Ders 1

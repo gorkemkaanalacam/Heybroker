@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AnalyzesScreen from '../screens/AnalyzesScreen';
 import AnalysisDetailScreen from '../screens/AnalysisDetailScreen';
 import { TouchableOpacity, Text } from 'react-native';
+import { colors } from '../constants';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,7 +21,7 @@ const AnalyzesNavigator = () => {
                 textAlign: 'center',
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#79A7CC'
+                color: colors.neonblue
               }}
             >
               Analizler
@@ -40,7 +41,7 @@ const AnalyzesNavigator = () => {
                   flex: 1,
                   fontSize: 20,
                   fontWeight: '700',
-                  color: '#79A7CC'
+                  color: colors.neonblue
                 }}
               >
                 {item.title}

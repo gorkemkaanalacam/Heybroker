@@ -2,6 +2,7 @@ import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CalendarScreen from '../screens/CalendarScreen';
 import { TouchableOpacity, Text } from 'react-native';
+import { colors } from '../constants';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,7 +20,7 @@ const CalendarNavigator = () => {
                 textAlign: 'center',
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#79A7CC'
+                color: colors.neonblue
               }}
             >
               Ekonomik Takvim

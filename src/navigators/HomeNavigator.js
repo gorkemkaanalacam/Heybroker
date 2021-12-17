@@ -8,6 +8,7 @@ import NotificationsScreen from '../screens/NotificationsScreen';
 import NotificationDetailScreen from '../screens/NotificationDetailScreen';
 import { TouchableOpacity, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { colors } from '../constants';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +26,7 @@ const HomeNavigator = () => {
                 textAlign: 'center',
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#79A7CC'
+                color: colors.neonblue
               }}
             >
               Hey Brokers!
@@ -34,10 +35,10 @@ const HomeNavigator = () => {
           headerRight: () => (
             <View style={{ flexDirection: 'row' }}>
               <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                <Ionicons name="person" size={24} color="#79A7CC" style={{ marginRight: 10 }} />
+                <Ionicons name="person" size={24} color={colors.neonblue} style={{ marginRight: 10 }} />
               </TouchableOpacity>
               <TouchableOpacity onPress={() => navigation.navigate('Notifications')}>
-                <Ionicons name="mail" size={24} color="#79A7CC" />
+                <Ionicons name="mail" size={24} color={colors.neonblue} />
               </TouchableOpacity>
             </View>
           ),
@@ -53,7 +54,7 @@ const HomeNavigator = () => {
                 flex: 1,
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#79A7CC'
+                color: colors.neonblue
               }}
             >
               Profile
@@ -72,7 +73,7 @@ const HomeNavigator = () => {
                 flex: 1,
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#79A7CC'
+                color: colors.neonblue
               }}
             >
               Ekonomik Takvim
@@ -91,7 +92,7 @@ const HomeNavigator = () => {
                 flex: 1,
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#79A7CC'
+                color: colors.neonblue
               }}
             >
               Haberler
@@ -112,7 +113,7 @@ const HomeNavigator = () => {
                   flex: 1,
                   fontSize: 20,
                   fontWeight: '700',
-                  color: '#79A7CC'
+                  color: colors.neonblue
                 }}
               >
                 {news.author.name}
@@ -132,7 +133,7 @@ const HomeNavigator = () => {
                 flex: 1,
                 fontSize: 20,
                 fontWeight: '700',
-                color: '#79A7CC'
+                color: colors.neonblue
               }}
             >
               Bildirimler
@@ -153,7 +154,7 @@ const HomeNavigator = () => {
                   flex: 1,
                   fontSize: 20,
                   fontWeight: '700',
-                  color: '#79A7CC'
+                  color: colors.neonblue
                 }}
               >
                 {item.answer.title}

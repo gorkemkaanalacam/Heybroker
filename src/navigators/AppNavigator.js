@@ -11,6 +11,7 @@ import NotificationsNavigator from '../navigators/NotificationsNavigator';
 import { TouchableOpacity, Alert } from 'react-native';
 import { AuthContext } from '../context/ContextProvider';
 import * as SecureStore from 'expo-secure-store';
+import { colors } from '../constants';
 
 const Tab = createBottomTabNavigator();
 const AppNavigator = () => {

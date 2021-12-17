@@ -5,6 +5,7 @@ import NotificationsScreen from '../screens/NotificationsScreen';
 import NotificationDetailScreen from '../screens/NotificationDetailScreen';
 import { TouchableOpacity, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { colors } from '../constants';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,7 +23,7 @@ const NotificationsNavigator = () => {
                 fontSize: 20,
                 textAlign: 'center',
                 fontWeight: '700',
-                color: '#79A7CC'
+                color: colors.neonblue
               }}
             >
               Bildirimler
@@ -43,7 +44,7 @@ const NotificationsNavigator = () => {
                   flex: 1,
                   fontSize: 20,
                   fontWeight: '700',
-                  color: '#79A7CC'
+                  color: colors.neonblue
                 }}
               >
                 {item.answer.title}
