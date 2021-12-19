@@ -38,59 +38,57 @@ export default AnalyzesScreen = ({ navigation }) => {
   }, []);
 
   return (
-    <Layout style={{ flex: 1 }}>
-      <FlatList
-        style={{ padding: 10 }}
-        data={analysisList}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => {
-          return (
-            <TouchableOpacity
-              onPress={() =>
-                navigation.navigate('AnalysisDetail', { analysis: item })
-              }
+    <FlatList
+      style={{ padding: 10 }}
+      data={analysisList}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
+      keyExtractor={(item, index) => index.toString()}
+      renderItem={({ item }) => {
+        return (
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('AnalysisDetail', { analysis: item })
+            }
+          >
+            <View
+              style={{
+                padding: 10,
+                marginBottom: 10,
+                borderRadius: 5,
+                height: 160,
+                backgroundColor: '#262834',
+              }}
             >
-              <View
+              <Text
+                size="xl"
                 style={{
-                  padding: 10,
-                  marginBottom: 10,
-                  borderRadius: 5,
-                  height: 160,
-                  backgroundColor: '#262834',
+                  fontWeight: '700',
+                  textAlign: 'center',
                 }}
               >
-                <Text
-                  size="xl"
-                  style={{
-                    fontWeight: '700',
-                    textAlign: 'center',
-                  }}
-                >
-                  {item.title}
-                </Text>
-                <Text size="md" style={{ marginTop: 10 }} numberOfLines={3}>
-                  {item.description}
-                </Text>
-                <Text size="md" style={{ marginTop: 10, textAlign: 'center' }}>
-                  {'> Devamı <'}
-                </Text>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    marginTop: 'auto',
-                  }}
-                >
-                  <Text size="sm">{item.createdDate}</Text>
-                </View>
+                {item.title}
+              </Text>
+              <Text size="md" style={{ marginTop: 10 }} numberOfLines={3}>
+                {item.description}
+              </Text>
+              <Text size="md" style={{ marginTop: 10, textAlign: 'center' }}>
+                {'> Devamı <'}
+              </Text>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  marginTop: 'auto',
+                }}
+              >
+                <Text size="sm">{item.createdDate}</Text>
               </View>
-            </TouchableOpacity>
-          );
-        }}
-      />
-    </Layout>
+            </View>
+          </TouchableOpacity>
+        );
+      }}
+    />
   );
 };

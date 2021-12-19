@@ -8,6 +8,7 @@ import NotificationsScreen from '../screens/NotificationsScreen';
 import NotificationDetailScreen from '../screens/NotificationDetailScreen';
 import { TouchableOpacity, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import NavigationHeader from '../components/NavigationHeader';
 import { colors } from '../constants';
 
 const Stack = createNativeStackNavigator();
@@ -19,27 +20,30 @@ const HomeNavigator = () => {
         name="Home"
         component={HomeScreen}
         options={({ navigation }) => ({
-          headerTitle: () => (
-            <Text
-              style={{
-                flex: 1,
-                textAlign: 'center',
-                fontSize: 20,
-                fontWeight: '700',
-                color: colors.neonblue
-              }}
-            >
-              Hey Brokers!
-            </Text>
-          ),
-          headerRight: () => (
-            <View style={{ flexDirection: 'row' }}>
-              <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                <Ionicons name="person" size={24} color={colors.neonblue} style={{ marginRight: 10 }} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Notifications')}>
-                <Ionicons name="mail" size={24} color={colors.neonblue} />
-              </TouchableOpacity>
+          header: () => (
+            <View style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: 15,
+              backgroundColor: '#121212'
+            }}>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: '700',
+                  color: colors.neonblue
+                }}
+              >
+                Hey Brokers!
+              </Text>
+              <View style={{ flexDirection: 'row', position: 'absolute', right: 15 }}>
+                <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+                  <Ionicons name="person" size={24} color={colors.neonblue} style={{ marginRight: 10 }} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Notifications')}>
+                  <Ionicons name="mail" size={24} color={colors.neonblue} />
+                </TouchableOpacity>
+              </View>
             </View>
           ),
         })}
@@ -49,16 +53,7 @@ const HomeNavigator = () => {
         component={ProfileScreen}
         options={({ navigation }) => ({
           headerTitle: () => (
-            <Text
-              style={{
-                flex: 1,
-                fontSize: 20,
-                fontWeight: '700',
-                color: colors.neonblue
-              }}
-            >
-              Profile
-            </Text>
+            <NavigationHeader title="Profile" />
           ),
         })}
       />
@@ -68,16 +63,7 @@ const HomeNavigator = () => {
         component={CalendarScreen}
         options={({ navigation }) => ({
           headerTitle: () => (
-            <Text
-              style={{
-                flex: 1,
-                fontSize: 20,
-                fontWeight: '700',
-                color: colors.neonblue
-              }}
-            >
-              Ekonomik Takvim
-            </Text>
+            <NavigationHeader title="Ekonomik Takvim" />
           ),
         })}
       />
@@ -87,16 +73,8 @@ const HomeNavigator = () => {
         component={NewsScreen}
         options={({ navigation }) => ({
           headerTitle: () => (
-            <Text
-              style={{
-                flex: 1,
-                fontSize: 20,
-                fontWeight: '700',
-                color: colors.neonblue
-              }}
-            >
-              Haberler
-            </Text>
+            <NavigationHeader title="Haberler" />
+
           ),
         })}
       />
@@ -108,16 +86,7 @@ const HomeNavigator = () => {
           const news = route.params.news;
           return {
             headerTitle: () => (
-              <Text
-                style={{
-                  flex: 1,
-                  fontSize: 20,
-                  fontWeight: '700',
-                  color: colors.neonblue
-                }}
-              >
-                {news.author.name}
-              </Text>
+              <NavigationHeader title={news.author.name} />
             ),
           };
         }}
@@ -128,16 +97,7 @@ const HomeNavigator = () => {
         component={NotificationsScreen}
         options={({ navigation }) => ({
           headerTitle: () => (
-            <Text
-              style={{
-                flex: 1,
-                fontSize: 20,
-                fontWeight: '700',
-                color: colors.neonblue
-              }}
-            >
-              Bildirimler
-            </Text>
+            <NavigationHeader title="Bildirimler" />
           ),
         })}
       />
@@ -149,16 +109,7 @@ const HomeNavigator = () => {
           const item = route.params.notification;
           return {
             headerTitle: () => (
-              <Text
-                style={{
-                  flex: 1,
-                  fontSize: 20,
-                  fontWeight: '700',
-                  color: colors.neonblue
-                }}
-              >
-                {item.answer.title}
-              </Text>
+              <NavigationHeader title={item.answer.title} />
             ),
           };
         }}

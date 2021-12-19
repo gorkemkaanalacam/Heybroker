@@ -57,7 +57,6 @@ export default NewsScreen = ({ navigation }) => {
                   }}
                 >
                   <Text style={{ fontSize: 12 }}>{item.date_published}</Text>
-                  <Text>Investing</Text>
                 </View>
               </View>
             </TouchableOpacity>

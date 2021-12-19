@@ -4,7 +4,7 @@ import QuestionsScreen from '../screens/QuestionsScreen';
 import NotificationsScreen from '../screens/NotificationsScreen';
 import { TouchableOpacity, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { colors } from '../constants';
+import NavigationHeader from '../components/NavigationHeader';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,18 +15,8 @@ const QuestionsNavigator = () => {
         name="Questions"
         component={QuestionsScreen}
         options={({ navigation }) => ({
-          headerTitle: () => (
-            <Text
-              style={{
-                flex: 1,
-                textAlign: 'center',
-                fontSize: 20,
-                fontWeight: '700',
-                color: colors.neonblue
-              }}
-            >
-              Sorular
-            </Text>
+          header: () => (
+            <NavigationHeader title="Sorular" />
           ),
           // headerRight: () => (
           //   <TouchableOpacity
@@ -44,16 +34,7 @@ const QuestionsNavigator = () => {
         component={NotificationsScreen}
         options={({ navigation }) => ({
           headerTitle: () => (
-            <Text
-              style={{
-                flex: 1,
-                fontSize: 20,
-                fontWeight: '700',
-                color: colors.neonblue
-              }}
-            >
-              Bildirimler
-            </Text>
+            <NavigationHeader title="Bildirimler" />
           ),
         })}
       />

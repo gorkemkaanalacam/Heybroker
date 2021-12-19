@@ -2,8 +2,8 @@ import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AnalyzesScreen from '../screens/AnalyzesScreen';
 import AnalysisDetailScreen from '../screens/AnalysisDetailScreen';
-import { TouchableOpacity, Text } from 'react-native';
-import { colors } from '../constants';
+import { TouchableOpacity, Text, View } from 'react-native';
+import NavigationHeader from '../components/NavigationHeader';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,18 +14,8 @@ const AnalyzesNavigator = () => {
         name="Analyzes"
         component={AnalyzesScreen}
         options={({ navigation }) => ({
-          headerTitle: () => (
-            <Text
-              style={{
-                flex: 1,
-                textAlign: 'center',
-                fontSize: 20,
-                fontWeight: '700',
-                color: colors.neonblue
-              }}
-            >
-              Analizler
-            </Text>
+          header: () => (
+            <NavigationHeader title="Analizler" />
           ),
         })}
       />
@@ -36,16 +26,7 @@ const AnalyzesNavigator = () => {
           const item = route.params.analysis;
           return {
             headerTitle: () => (
-              <Text
-                style={{
-                  flex: 1,
-                  fontSize: 20,
-                  fontWeight: '700',
-                  color: colors.neonblue
-                }}
-              >
-                {item.title}
-              </Text>
+              <NavigationHeader title={item.title} />
             ),
           };
         }}

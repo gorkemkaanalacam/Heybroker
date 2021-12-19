@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import NewsScreen from '../screens/NewsScreen';
 import NewsDetailScreen from '../screens/NewsDetailScreen';
 import { TouchableOpacity, Text } from 'react-native';
-import { colors } from '../constants';
+import NavigationHeader from '../components/NavigationHeader';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,18 +14,8 @@ const NewsNavigator = () => {
         name="News"
         component={NewsScreen}
         options={({ navigation }) => ({
-          headerTitle: () => (
-            <Text
-              style={{
-                flex: 1,
-                textAlign: 'center',
-                fontSize: 20,
-                fontWeight: '700',
-                color: colors.neonblue
-              }}
-            >
-              Haberler
-            </Text>
+          header: () => (
+            <NavigationHeader title="Haberler" />
           ),
         })}
       />
@@ -36,16 +26,7 @@ const NewsNavigator = () => {
           const news = route.params.news;
           return {
             headerTitle: () => (
-              <Text
-                style={{
-                  flex: 1,
-                  fontSize: 20,
-                  fontWeight: '700',
-                  color: colors.neonblue
-                }}
-              >
-                {news.author.name}
-              </Text>
+              <NavigationHeader title={news.author.name} />
             ),
           };
         }}

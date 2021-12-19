@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LecturesScreen from '../screens/LecturesScreen';
 import LectureDetailScreen from '../screens/LectureDetailScreen';
 import { TouchableOpacity, Text } from 'react-native';
-import { colors } from '../constants';
+import NavigationHeader from '../components/NavigationHeader';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,18 +14,8 @@ const LecturesNavigator = () => {
         name="Lectures"
         component={LecturesScreen}
         options={({ navigation }) => ({
-          headerTitle: () => (
-            <Text
-              style={{
-                flex: 1,
-                textAlign: 'center',
-                fontSize: 20,
-                fontWeight: '700',
-                color: colors.neonblue
-              }}
-            >
-              Dersler
-            </Text>
+          header: () => (
+            <NavigationHeader title="Dersler" />
           ),
         })}
       />
@@ -34,16 +24,7 @@ const LecturesNavigator = () => {
         component={LectureDetailScreen}
         options={({ navigation }) => ({
           headerTitle: () => (
-            <Text
-              style={{
-                flex: 1,
-                fontSize: 20,
-                fontWeight: '700',
-                color: colors.neonblue
-              }}
-            >
-              Ders 1
-            </Text>
+            <NavigationHeader title="Ders" />
           ),
         })}
       />

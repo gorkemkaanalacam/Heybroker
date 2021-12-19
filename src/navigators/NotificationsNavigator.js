@@ -5,7 +5,7 @@ import NotificationsScreen from '../screens/NotificationsScreen';
 import NotificationDetailScreen from '../screens/NotificationDetailScreen';
 import { TouchableOpacity, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { colors } from '../constants';
+import NavigationHeader from '../components/NavigationHeader';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,18 +16,9 @@ const NotificationsNavigator = () => {
         name="Notifications"
         component={NotificationsScreen}
         options={({ navigation }) => ({
-          headerTitle: () => (
-            <Text
-              style={{
-                flex: 1,
-                fontSize: 20,
-                textAlign: 'center',
-                fontWeight: '700',
-                color: colors.neonblue
-              }}
-            >
-              Bildirimler
-            </Text>
+          header: () => (
+            <NavigationHeader title="Bildirimler" />
+
           ),
         })}
       />
@@ -39,16 +30,7 @@ const NotificationsNavigator = () => {
           const item = route.params.notification;
           return {
             headerTitle: () => (
-              <Text
-                style={{
-                  flex: 1,
-                  fontSize: 20,
-                  fontWeight: '700',
-                  color: colors.neonblue
-                }}
-              >
-                {item.answer.title}
-              </Text>
+              <NavigationHeader title={item.answer.title} />
             ),
           };
         }}

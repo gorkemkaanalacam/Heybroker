@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CalendarScreen from '../screens/CalendarScreen';
 import { TouchableOpacity, Text } from 'react-native';
-import { colors } from '../constants';
+import NavigationHeader from '../components/NavigationHeader';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,18 +13,8 @@ const CalendarNavigator = () => {
         name="Calendar"
         component={CalendarScreen}
         options={({ navigation }) => ({
-          headerTitle: () => (
-            <Text
-              style={{
-                flex: 1,
-                textAlign: 'center',
-                fontSize: 20,
-                fontWeight: '700',
-                color: colors.neonblue
-              }}
-            >
-              Ekonomik Takvim
-            </Text>
+          header: () => (
+            <NavigationHeader title="Ekonomik Takvim" />
           ),
         })}
       />

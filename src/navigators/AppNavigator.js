@@ -81,7 +81,7 @@ const AppNavigator = () => {
           }
         },
         tabBarInactiveTintColor: 'gray',
-        tabBarActiveTintColor: '#F6BC3C',
+        tabBarActiveTintColor: colors.neonblue,
       })}
     >
       <Tab.Screen

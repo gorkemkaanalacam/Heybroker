@@ -11,7 +11,7 @@ export default IntroScreen = ({ navigation }) => {
         <View style={styles.container}>
 
             <Video
-                source={{ uri: "https://res.cloudinary.com/dj2pv0omx/video/upload/v1639238077/WhatsApp_Video_2021-12-07_at_16.09.56_psoxot.mp4" }}
+                source={{ uri: "https://res.cloudinary.com/dj2pv0omx/video/upload/v1639818695/WhatsApp_Video_2021-12-07_at_16.02.56_psoxot.mp4" }}
                 style={styles.backgroundVideo}
                 rate={1}
                 shouldPlay={true}
